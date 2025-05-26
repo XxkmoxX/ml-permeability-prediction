@@ -28,7 +28,26 @@ This work proposes the implementation of different machine learning algorithms t
 ### **2.1 - Main objective**
 Implement machine learning algorithms to optimize the derivation of effective reservoir parameters, such as equivalent hydraulic conductivity (_K<sub>eq</sub>_), in upscaling procedures.
 
-### **2.2 Specific objectives**
+### **2.2 - Specific objectives**
+  - Analyze and study the possibility of implementing different machine learning algorithms to optimize upscaling procedures for obtaining _K<sub>eq</sub>_ from connectivity indicators using 2D synthetic media or reservoirs with a global grid size of *L*=512<sup>2<sup/>.
+    
+  - Use different synthetic reservoir construction parameters to generate different media or sample realizations. It is proposed to vary the correlation length (__*l<sub>c<sub/>*__) and connectivity structures: intermediate, high, and low (see Table 1).
+    
+  - Evaluate and analyze the performance of the following machine learning algorithms in predicting _K<sub>eq</sub>_.
+    
+    - Extreme gradient boosting (XGBoost).
+    - Artificial Neural Networks (ANN): Keras Neural Network.
+    - Decision Tree (DT).
+    - Generalized Linear Model (GLM): Tweedie Regressor.
+    - Elastic Net Linear Model.
+
+
+## **3 - Methodology**
+The first step consisted of generating samples or realizations of two-dimensional (2D) square binary media. The media are characterized by three parameters: connectivity structure (low, intermediate, high), an integral scale __*l<sub>c<sub/>*__, and a ratio __*p*__. The scale was then scaled from the fine scale (*Δ*) through various intermediate scales (*λ*) to the media size (*L*), obtaining a __*K<sub>eq<sub/>*__ value for each sample or realization. The complete procedure for generating synthetic media or reservoirs is detailed below.
+
+  **a.** Generation of 2D multi-Gaussian media realizations of linear size (*L<sub>x<sub/>*=*L<sub>y<sub/>*=512*Δ*) with a unit cell size of *Δ*=1 m, with a lognormal distribution of *k(**r**)*, using an isotropic exponential covariance function. The samples were characterized with __*l<sub>c<sub/>*__ = 2, 3, 4. In the stochastic framework employed, 6400 realizations were generated for each set of parameters, achieving a total of 1152000 realizations in order to achieve good statistical sampling (see Table 1).
+
+    
 
 
 
