@@ -55,5 +55,17 @@ In multi-Gaussian media, the intermediate *k(**r**)* classes form a connected ma
   **b**. Truncation binarization, mapping the *k(**r**)* point values ​​of the multi-Gaussian samples to __*k<sup>+</sup>* = 100 mD__ and __*k<sup>-</sup>* = 0.01 mD__ point values ​​in the target binary samples. The truncation scheme shown in **Fig. 3** was used to generate the binary media samples with high, intermediate, and low connectivity structure types (**Fig. 2**). The following range of the proportion p of high hydraulic conductivity facies was used: **0.4 <= _p_ <= 0.8**, **20** values.
 
 ![binary_colecchio](plots/binary_colecchio.png)                                              
-  <sub>**Fig. 3** Schematic of the truncation procedure used to obtain binary samples from multi-Gaussians with high (left), intermediate (center), and low (right) connectivity structures. Note that in the underlying multi-Gaussian samples, intermediate values ​​of *k(**r**)* form a connected matrix (CM), while extreme values ​​form a disconnected matrix (DM) (Colecchio et al., 2021)..<sub/>  
+  <sub>**Fig. 3:** Schematic of the truncation procedure used to obtain binary samples from multi-Gaussians with high (left), intermediate (center), and low (right) connectivity structures. Note that in the underlying multi-Gaussian samples, intermediate values ​​of *k(**r**)* form a connected matrix (CM), while extreme values ​​form a disconnected matrix (DM) (Colecchio et al., 2021)..<sub/> 
 
+  **c.** Calculation of connectivity metrics or indicators using the Connect3D code derived from percolation theory and integral geometry. The indicators used are listed below: VOLALE, GAMMA, ZNCC, SPANNING, npx, npy, npz, PPHA, Plen, S, X.
+
+  **d.** Calculation of the equivalent hydraulic conductivity _K<sub>eq</sub>_: This is the most computationally expensive phase. To obtain _K<sub>eq</sub>_, the Darcy equation (Eq. 1) is applied, where the flow is solved by imposing a hydraulic gradient between the inlet (**H<sub>in<sub/>**) and outlet (**H<sub>out<sub/>**) faces (Dirichlet boundary conditions). In **Eq. 1**, q is the mean flow velocity through a plane perpendicular to the hydraulic gradient                    
+(**H<sub>in<sub/>** **-** **H<sub>out<sub/>** **/** **L**) . Furthermore, the faces of the domain parallel to the flow are considered to be impermeable and therefore there is no flow through them (Neumann boundary conditions).
+
+$$
+ K_{eq} = \frac{qL}{H_{in}-H_{out}} \hspace{2cm} \text{(**Eq. 1**)}
+$$
+
+The flow is calculated across the entire domain, i.e., using global upscaling, obtaining a single Keq value for each medium or implementation.
+
+The generation of synthetic reservoirs, flow resolution, and training of machine learning algorithms were performed on the TUPAC high-performance computing (HPC) cluster at CONICET's Center for Computational Simulation for Technological Applications. This cluster is a supercomputer with high processing and storage capacity, composed of 60 CPU nodes (Dell PowerEdge C6145) with 64 cores each and 120 GB of RAM, plus 8 GPU nodes (Nvidia RTX 2080), and a total of 72 TB of storage (https://www.tupac.gob.ar/stories/home/).
