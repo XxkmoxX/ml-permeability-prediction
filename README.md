@@ -47,7 +47,13 @@ The first step consisted of generating samples or realizations of two-dimensiona
 
   **a.** Generation of 2D multi-Gaussian media realizations of linear size (*L<sub>x<sub/>*=*L<sub>y<sub/>*=512*Δ*) with a unit cell size of *Δ*=1 m, with a lognormal distribution of *k(**r**)*, using an isotropic exponential covariance function. The samples were characterized with __*l<sub>c<sub/>*__ = 2, 3, 4. In the stochastic framework employed, 6400 realizations were generated for each set of parameters, achieving a total of 1152000 realizations in order to achieve good statistical sampling (see Table 1).
 
- ![table_1](plots/03_conectivity_st_3.png) <sub>**Fig. 2:** Mpas of *log*(*k(**r**)*) of the connectivity structures used in this study: (left) high, (center) intermediate, and (right) low connectivity structures. A zoom is shown in the lower left corner for better visualization.   
+ ![table_1](plots/table_1.png)                                              
+  <sub>**Table 1:** Construction parameters of synthetic reservoirs and simulator input data.<sub/>  
 
+In multi-Gaussian media, the intermediate *k(**r**)* classes form a connected matrix, while the *k(**r**)* classes are disconnected. Random fields were generated using the fast Fourier transform moving average (FFT-MA) method.
 
+  **b**. Truncation binarization, mapping the *k(**r**)* point values ​​of the multi-Gaussian samples to __*k<sup>+</sup>* = 100 mD__ and __*k<sup>-</sup>* = 0.01 mD__ point values ​​in the target binary samples. The truncation scheme shown in **Fig. 3** was used to generate the binary media samples with high, intermediate, and low connectivity structure types (**Fig. 2**). The following range of the proportion p of high hydraulic conductivity facies was used: **0.4 <= _p_ <= 0.8**, **20** values.
+
+![binary_colecchio](plots/binary_colecchio.png)                                              
+  <sub>**Fig. 3** Schematic of the truncation procedure used to obtain binary samples from multi-Gaussians with high (left), intermediate (center), and low (right) connectivity structures. Note that in the underlying multi-Gaussian samples, intermediate values ​​of *k(**r**)* form a connected matrix (CM), while extreme values ​​form a disconnected matrix (DM) (Colecchio et al., 2021)..<sub/>  
 
