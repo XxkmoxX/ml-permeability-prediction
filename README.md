@@ -47,7 +47,7 @@ The first step consisted of generating samples or realizations of two-dimensiona
 
   **a.** Generation of 2D multi-Gaussian media realizations of linear size (*L<sub>x<sub/>*=*L<sub>y<sub/>*=512*Δ*) with a unit cell size of *Δ*=1 m, with a lognormal distribution of *k(**r**)*, using an isotropic exponential covariance function. The samples were characterized with __*l<sub>c<sub/>*__ = 2, 3, 4. In the stochastic framework employed, 6400 realizations were generated for each set of parameters, achieving a total of 1152000 realizations in order to achieve good statistical sampling (see Table 1).
 
-    
+ ![table_1](plots/03_conectivity_st_3.png) <sub>**Fig. 2:** Mpas of *log*(*k(**r**)*) of the connectivity structures used in this study: (left) high, (center) intermediate, and (right) low connectivity structures. A zoom is shown in the lower left corner for better visualization.   
 
 
 
