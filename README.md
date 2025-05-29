@@ -57,7 +57,14 @@ In multi-Gaussian media, the intermediate *k(**r**)* classes form a connected ma
 ![binary_colecchio](plots/binary_colecchio.png)                                              
   <sub>**Fig. 3:** Schematic of the truncation procedure used to obtain binary samples from multi-Gaussians with high (left), intermediate (center), and low (right) connectivity structures. Note that in the underlying multi-Gaussian samples, intermediate values ​​of *k(**r**)* form a connected matrix (CM), while extreme values ​​form a disconnected matrix (DM) (Colecchio et al., 2021)..<sub/> 
 
-  **c.** Calculation of connectivity metrics or indicators using the Connect3D code derived from percolation theory and integral geometry. The indicators used are listed below: VOLALE, GAMMA, ZNCC, SPANNING, npx, npy, npz, PPHA, Plen, S, X.
+  **c.** Calculation of connectivity indicators using the Connect3D code derived from percolation theory and integral geometry. Connectivity characterization has several approaches, and there is no unified view. This work uses some of the static connectivity indicators frequently used in the literature, derived from percolation theory and integral geometry.
+
+These indicators are combined to study phase transitions in percolation systems and topological characteristics of connectivity. In integral geometry, they are also linked to tools such as correlation functions and measures related to the properties of networks and stochastic processes (Pardo and Dowd, 2003).
+  
+  
+  
+  
+  The indicators used are: VOLALE, GAMMA, ZNCC, SPANNING, PPHA, S, X, Plen.
 
   **d.** Calculation of the equivalent hydraulic conductivity _K<sub>eq</sub>_: This is the most computationally expensive phase. To obtain _K<sub>eq</sub>_, the Darcy equation (Eq. 1) is applied, where the flow is solved by imposing a hydraulic gradient between the inlet (**H<sub>in<sub/>**) and outlet (**H<sub>out<sub/>**) faces (Dirichlet boundary conditions). In **Eq. 1**, q is the mean flow velocity through a plane perpendicular to the hydraulic gradient                    
 (**H<sub>in<sub/>** **-** **H<sub>out<sub/>** **/** **L**) . Furthermore, the faces of the domain parallel to the flow are considered to be impermeable and therefore there is no flow through them (Neumann boundary conditions).
