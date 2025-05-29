@@ -5,11 +5,9 @@ from tqdm import tqdm
 def rename_folders(base_dir: str, start_range: int, end_range: int, offset: int, dry_run: bool = True) -> None:
     '''
     Rename numbered folders by adding an offset.
-    Args:
-        base_dir (str): Base directory containing numbered folders
         start_range (int): Start of original range (inclusive)
         end_range (int): End of original range (inclusive)
-        offset (int): Number to add to each folder name
+        offset (int): Offset number to add to each folder name
         dry_run (bool): If True, only simulate renaming
     '''
     base_path = Path(base_dir)
@@ -29,7 +27,7 @@ def rename_folders(base_dir: str, start_range: int, end_range: int, offset: int,
         print(f"No folders found in range {start_range}-{end_range}")
         return
 
-    # Show summary
+    # Summary
     print(f"\nFound {len(folders_to_rename)} folders to rename")
     print(f"Original range: {start_range} to {end_range}")
     print(f"New range: {start_range + offset} to {end_range + offset}")
@@ -61,7 +59,7 @@ def rename_folders(base_dir: str, start_range: int, end_range: int, offset: int,
         except Exception as e:
             errors.append((dir_path, str(e)))
 
-    # Print summary
+    # Summary
     print(f"\nOperation complete:")
     print(f"Successfully renamed: {renamed_count} folders")
     if errors:
@@ -77,10 +75,10 @@ if __name__ == "__main__":
     END_RANGE = 12799
     OFFSET = 25600  # This will shift 0->12800, 1->12801, ... # connect 2: offset = 12800, connect 3: offset = 25600
 
-    # First run in dry-run mode
+    # Dry-run
     print("Performing dry run...")
     rename_folders(work_dir, START_RANGE, END_RANGE, OFFSET, dry_run=True)
 
-    # Ask to proceed with actual renaming
+    # Ask to proceed with renaming
     if input("\nRun actual renaming? (y/N): ").lower() == 'y':
         rename_folders(work_dir, START_RANGE, END_RANGE, OFFSET, dry_run=False)

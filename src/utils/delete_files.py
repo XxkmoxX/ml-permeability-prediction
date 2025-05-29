@@ -3,7 +3,7 @@ import os
 def remove_files(dir):
     for root, _, files in os.walk(dir):
         for file in files:
-            if file in {'Cmap.npy', 'P,noy'}:
+            if file in {'Cmap.npy', 'P,npy'}:
                 file_path = os.path.join(root, file)
                 try:
                     os.remove(file_path)
